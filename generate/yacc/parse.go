@@ -2,10 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Package parse builds parse trees for configurations as defined by conf.
-// Clients should use that package to construct configurations rather than this
-// one, which provides shared internal data structures not intended for general
-// use.
+// Package yacc parses .y files.
 package yacc
 
 import (
@@ -14,7 +11,7 @@ import (
 	"strings"
 )
 
-// Tree is the representation of a single parsed configuration.
+// Tree is the representation of a single parsed file.
 type Tree struct {
 	Name        string // name of the template represented by the tree.
 	Productions []*ProductionNode
@@ -153,10 +150,8 @@ func (t *Tree) stopParse() {
 	t.lex = nil
 }
 
-// Parse parses the template definition string to construct a representation of
-// the template for execution. If either action delimiter string is empty, the
-// default ("{{" or "}}") is used. Embedded template definitions are added to
-// the treeSet map.
+// Parse parses the yacc string to construct a representation of
+// the file for analysis.
 func (t *Tree) Parse(text string) (err error) {
 	defer t.recover(&err)
 	t.startParse(lex(t.Name, text))
@@ -166,7 +161,7 @@ func (t *Tree) Parse(text string) (err error) {
 	return nil
 }
 
-// parse is the top-level parser for a conf.
+// parse is the top-level parser for a file.
 // It runs to EOF.
 func (t *Tree) parse() {
 	for {

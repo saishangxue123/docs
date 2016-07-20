@@ -37,8 +37,6 @@ func (p Pos) Position() Pos {
 func (Pos) unexported() {
 }
 
-// Type returns itself and provides an easy default implementation
-// for embedding in a Node. Embedded in all non-trivial Nodes.
 func (t NodeType) Type() NodeType {
 	return t
 }
@@ -88,6 +86,6 @@ type Item struct {
 type ItemTyp int
 
 const (
-	TypToken = iota
+	TypToken ItemTyp = iota
 	TypLiteral
 )
