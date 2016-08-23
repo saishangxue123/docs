@@ -127,6 +127,9 @@ entries:
                 - title: <code>SHOW CONSTRAINTS</code>
                   url: /show-constraints.html
 
+                - title: <code>SHOW CREATE TABLE</code>
+                  url: /show-create-table.html
+
                 - title: <code>SHOW DATABASES</code>
                   url: /show-databases.html
 
@@ -281,6 +284,9 @@ entries:
         - title: CockroachDB in Comparison
           url: /cockroachdb-in-comparison.html
 
+        - title: SQL Feature Support
+          url: /sql-feature-support.html
+
         - title: CockroachDB Architecture
           url: /cockroachdb-architecture.html
 
@@ -310,5 +316,8 @@ entries:
         - title: beta-20160629
           url: /beta-20160629.html
 
-        - title: Older Versions
+        - title: Older Beta Versions
           url: /older-versions.html
+
+        - title: Features on Develop Branch
+          url: /develop-branch.html
